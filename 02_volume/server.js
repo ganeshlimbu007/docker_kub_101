@@ -3,6 +3,7 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const { rm } = require("fs");
 
 const app = express();
 
@@ -45,7 +46,8 @@ app.post("/create", async (req, res) => {
       res.redirect("/exists");
     } catch {
       // File does NOT exist
-      await fs.rename(tempFilePath, finalFilePath);
+      await fs.copyFile(tempFilePath, finalFilePath);
+      await fs.unlink(tempFilePath);
       res.redirect("/");
     }
   } catch (err) {
@@ -54,4 +56,6 @@ app.post("/create", async (req, res) => {
   }
 });
 
-app.listen(80);
+app.listen(80, () => {
+  console.log("Server is running");
+});
