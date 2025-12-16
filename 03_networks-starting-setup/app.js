@@ -67,16 +67,15 @@ app.get("/people", async (req, res) => {
   }
 });
 
-/* mongoose.connect(
-  'mongodb://localhost:27017/swfavorites',
+mongoose.connect(
+  "mongodb://mongodb:27017/swfavorites",
   { useNewUrlParser: true },
   (err) => {
     if (err) {
       console.log(err);
     } else {
+      console.log("Connected to MongoDB and server running.");
       app.listen(3000);
     }
   }
 );
- */
-app.listen(3000);
