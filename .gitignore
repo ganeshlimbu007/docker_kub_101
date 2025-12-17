@@ -91,3 +91,6 @@ docker-compose.override.yml
 .jest/
 __tests__/coverage/
 .nyc_output/
+
+
+*.env
