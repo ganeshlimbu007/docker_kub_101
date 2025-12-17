@@ -3,6 +3,8 @@ version: "3.8"
 services:
   mongodb:
     image: 'mongo'
+    ports:
+      - '27017:27017'
     volumes:
       - data:/data/db
     # environment:
@@ -10,7 +12,21 @@ services:
     #   - MONGO_INITDB_ROOT_PASSWORD=password
     env_file:
       - ./env/mongo.env
-
+  backend:
+    build: ./backend
+    ports:
+      - '80:80'
+    # environment:
+    #   - MONGO_URL=mongodb://max:password@mongodb:27017
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
 
 volumes:
   data:
+  logs:
