@@ -1,0 +1,33 @@
+node_modules
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+dist/
+*.egg-info/
+.eggs/
+develop-eggs/
+parts/
+var/
+*.egg
+pip-wheel-metadata/
+__pypackages__/
+.pytest_cache/
+.mypy_cache/
+*.sqlite3
+*.log
+.env
+
+# Editor / system files
+.DS_Store
+.vscode/
+.idea/
