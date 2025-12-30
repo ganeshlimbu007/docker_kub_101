@@ -94,3 +94,4 @@ __tests__/coverage/
 
 
 *.env
+*.pem
